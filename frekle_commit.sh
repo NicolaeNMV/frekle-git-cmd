@@ -60,7 +60,7 @@ eval frekle_project_id=\$frekle_git2proj_${git_url_md5}_id
 if [[ ${#frekle_project} -eq 0 ]]; then
     echo "Here is the list of projects....."
     curl --silent -H "X-FreckleToken:$frekle_api_token" $frekle_projects_url > $projects_file
-    if [[ `wc -l $projects_file` -eq 0 ]]; then
+    if [[ `cat $projects_file | wc -l` -eq 0 ]]; then
         echo "Cannot get the project list, verify that your frekle api token is: "$frekle_api_token
     fi
     line=1
